@@ -3,471 +3,236 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MM INDUSTRY</title>
+  <title>MM INDUSTRY Footer</title>
+
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     :root {
-      --bg: #f2f4f8;
-      --page: #ffffff;
-      --text: #222;
+      --primary: #2c7be5;
+      --secondary: #00c6ff;
       --accent: #004aad;
       --accent2: #ff6a00;
-      --border: #d1d3d8;
-      --muted: #666;
-      --glow: rgba(255, 102, 0, 0.6);
+      --glass: rgba(255,255,255,0.15);
+      --muted: #f4f4f4;
     }
 
     body {
       margin: 0;
-      background: linear-gradient(180deg, #e9ebef, #dbe1eb);
       font-family: "Segoe UI", "Times New Roman", serif;
-      color: var(--text);
-      -webkit-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+      background: url('https://ik.imagekit.io/s95tumxuk/Mm.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
     }
 
-    /* ===== Document Container ===== */
-    .document {
-      background: var(--page);
-      max-width: 850px;
-      margin: 50px auto;
-      padding: 60px 70px;
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.1), 0 0 30px rgba(255,106,0,0.08);
+    footer {
       position: relative;
+      padding: 50px 20px 20px 20px;
+      color: #fff;
       overflow: hidden;
     }
 
-    /* ===== Glowing Border Animation ===== */
-    .document::before {
-      content: "";
-      position: absolute;
-      top: -2px; left: -2px; right: -2px; bottom: -2px;
-      background: linear-gradient(45deg, var(--accent), var(--accent2), var(--accent), var(--accent2));
-      background-size: 400% 400%;
-      z-index: -1;
-      filter: blur(10px);
-      opacity: 0.5;
-      animation: glow 10s ease infinite;
-      border-radius: 10px;
-    }
-
-    @keyframes glow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* ===== Header ===== */
-    header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border-bottom: 3px solid var(--accent);
-      padding-bottom: 15px;
+    .footer-bar {
+      height: 4px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent2), var(--accent), var(--accent2));
+      background-size: 200% 200%;
+      animation: flame 6s linear infinite;
+      border-radius: 4px;
       margin-bottom: 30px;
     }
 
-    .logo {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: radial-gradient(circle at top left, var(--accent2), var(--accent));
-      color: #fff;
-      font-weight: bold;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 8px var(--glow);
-      user-select: none;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 22px;
-      color: var(--accent);
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    /* ===== Main Content ===== */
-    main {
-      font-size: 14.5px;
-      line-height: 1.7;
-      color: #333;
-    }
-
-    main h2 {
-      color: var(--accent);
-      font-size: 16.5px;
-      border-bottom: 1.5px solid var(--accent);
-      padding-bottom: 4px;
-      margin-top: 30px;
-      text-transform: uppercase;
-    }
-
-    main h3 {
-      color: var(--accent2);
-      margin-top: 18px;
-      font-size: 15.5px;
-      font-weight: 600;
-    }
-
-    main p {
-      margin: 10px 0;
-      text-align: justify;
-    }
-
-    ul {
-      margin: 8px 0 18px 25px;
-    }
-
-    li {
-      margin-bottom: 5px;
-    }
-
-    main strong {
-      color: var(--accent);
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      border-top: 1.5px solid var(--border);
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 40px;
-      padding-top: 15px;
-    }
-
-    footer span {
-      color: var(--accent);
-      font-weight: bold;
-    }
-
-    /* ===== Flame Accent Bar ===== */
-    .flame-bar {
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent2), var(--accent), var(--accent2));
-      background-size: 200% 200%;
-      animation: flameflow 5s infinite linear;
-      border-radius: 4px;
-      box-shadow: 0 0 8px var(--glow);
-    }
-
-    @keyframes flameflow {
+    @keyframes flame {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* ===== Disable Selection ===== */
-    * {
-      -webkit-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      align-items: start;
     }
 
-    /* ===== Print Mode ===== */
-    @media print {
-      body {
-        background: #fff;
+    .footer-column {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .footer-column:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer-column h4 {
+      color: var(--accent);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+
+    .footer-column p, .footer-column ul li a {
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--accent2);
+    }
+
+    /* Flame-style image frame */
+    .footer-photo-frame {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 3px solid transparent;
+      background: linear-gradient(45deg, var(--accent2), var(--accent), var(--accent2));
+      background-size: 300% 300%;
+      animation: frameGlow 6s linear infinite;
+      box-shadow: 0 0 25px rgba(255,106,0,0.6);
+    }
+
+    @keyframes frameGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .footer-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* Social Links */
+    .social-links {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #004aad;
+      color: #fff;
+      text-align: center;
+      line-height: 40px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-2px);
+      background: var(--accent2);
+      box-shadow: 0 0 15px rgba(255,106,0,0.5);
+    }
+
+    /* Specific Colors */
+    .facebook { background: #1877f2; }
+    .youtube { background: #ff0000; }
+    .tiktok { background: #010101; }
+
+    /* Footer bottom */
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 15px;
+      margin-top: 30px;
+      font-size: 13px;
+    }
+
+    .footer-bottom span {
+      color: var(--accent2);
+      font-weight: bold;
+    }
+
+    @media(max-width:768px){
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
       }
-      .document {
-        box-shadow: none;
-        border: none;
-        margin: 0;
-        padding: 40px;
-      }
-      .flame-bar {
-        display: none;
+      .footer-photo-frame {
+        margin: 0 auto 15px auto;
       }
     }
   </style>
 </head>
 <body>
-  <div class="flame-bar"></div>
 
-  <div class="document">
-    <header>
-      <div class="logo">MM</div>
-      <h1>MM INDUSTRY</h1>
-    </header>
-
-    <main>
-      <h2>Company Overview</h2>
-      <p><strong>MM INDUSTRY</strong> is a global enterprise leading in industrial innovation, sustainable growth, and advanced engineering. With a strong foundation in technology and strategy, MM INDUSTRY is redefining industrial progress through smarter, cleaner, and more efficient solutions across multiple sectors.</p>
-
-      <p>Our core expertise includes <strong>manufacturing, automation, renewable energy, and industrial consulting</strong>. We empower organizations to achieve operational excellence while building sustainable and future-ready systems.</p>
-
-      <h2>Our Mission</h2>
-      <p>To provide innovative and high-quality industrial solutions that drive progress, support sustainable growth, and deliver value to businesses and communities worldwide.</p>
-
-      <h2>Our Vision</h2>
-      <p>To be a recognized global leader in engineering and industrial innovation, promoting sustainability and technology for a better tomorrow.</p>
-
-      <h2>Core Values</h2>
-      <ul>
-        <li><strong>Integrity:</strong> We act with honesty, respect, and accountability.</li>
-        <li><strong>Innovation:</strong> We explore new technologies and ideas to drive change.</li>
-        <li><strong>Excellence:</strong> We pursue precision and quality in every project.</li>
-        <li><strong>Sustainability:</strong> We commit to protecting our environment and communities.</li>
-        <li><strong>Collaboration:</strong> We believe in teamwork and shared success.</li>
-      </ul>
-
-      <h2>Our Services</h2>
-
-      <h3>Industrial Engineering</h3>
-      <p>We design efficient, high-performing industrial systems combining automation, precision, and sustainability to reduce waste and improve results.</p>
-
-      <h3>Automation & Technology</h3>
-      <p>We deliver automation and digital solutions that simplify industrial operations, increase efficiency, and transform productivity.</p>
-
-      <h3>Renewable Energy Solutions</h3>
-      <p>MM INDUSTRY supports the transition to clean energy through advanced solar, wind, and hybrid power systems tailored to industrial applications.</p>
-
-      <h3>Strategic Consulting</h3>
-      <p>Our consultants help organizations achieve operational excellence and long-term growth through tailored strategies and industry insights.</p>
-
-      <h2>Why Choose MM INDUSTRY?</h2>
-      <ul>
-        <li>Trusted experts with global experience.</li>
-        <li>Commitment to quality, innovation, and reliability.</li>
-        <li>Eco-friendly and future-focused solutions.</li>
-        <li>Full-service approach — from concept to completion.</li>
-        <li>Proven success in international markets.</li>
-      </ul>
-
-      <h2>FOUNDER OF MM INDUSTRY/CEO </h2></h2>
-      MARKMELLON CEO
-      <li>Is the founder and creater of MM industry Enterprise which has been in service for over 5 years.</li>
-    </main>
-
-  <footer>
+<footer>
   <div class="footer-bar"></div>
 
   <div class="footer-content">
+    <!-- Company Info -->
     <div class="footer-column">
       <div class="footer-photo-frame">
-        <img src="https://ik.imagekit.io/s95tumxuk/MM.jpg" alt="https://ik.imagekit.io/s95tumxuk/MM.jpg" />
+        <img src="https://ik.imagekit.io/s95tumxuk/Mmm.jpg" alt="MM INDUSTRY">
       </div>
       <h4>MM INDUSTRY</h4>
-      <p>
-        Innovating the future of industrial technology through excellence,
-        sustainability, and global expertise. We build smarter, cleaner,
-        and more efficient solutions for a better world.
-      </p>
+      <p>Innovating the future of industrial technology through excellence, sustainability, and global expertise. We build smarter, cleaner, and more efficient solutions for a better world.</p>
     </div>
 
+    <!-- Quick Links + Info -->
     <div class="footer-column">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      <h4>About Us</h4>
+      <p>MM INDUSTRY is a global industrial enterprise committed to innovation, sustainability, and operational excellence. With years of experience, we deliver cutting-edge solutions across multiple sectors. Our mission is to create smarter, cleaner, and more efficient systems that empower businesses and communities to thrive in a sustainable future.</p>
+      <h4>Services</h4>
+      <p>Industrial Engineering, Automation & Technology, Renewable Energy Solutions, Strategic Consulting.</p>
+      <h4>Projects</h4>
+      <p>Smart Manufacturing Systems, Renewable Energy Installations, Infrastructure Modernization, Custom Technology Solutions.</p>
     </div>
 
+    <!-- Contact Info -->
     <div class="footer-column">
       <h4>Contact</h4>
       <p>📧 <a href="mailto:mmindustry39@gmail.com">mmindustry39@gmail.com</a></p>
-      <p>☎️ +256 (7436) 60 990</p>
+      <p>☎️ +256 7436 60990</p>
       <p>🌐 <a href="#">www.mmindustry.com</a></p>
+      <p>🕒 Office Hours: Mon - Fri | 8:00 AM - 5:00 PM</p>
     </div>
+  </div>
+
+  <!-- Social Links -->
+  <div class="social-links">
+    <a href="https://www.facebook.com/mmindustry" target="_blank" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.youtube.com/@mmindustry" target="_blank" class="youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@mmindustry" target="_blank" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
   </div>
 
   <div class="footer-bottom">
     <p>© 2025 <span>MM INDUSTRY</span>. All Rights Reserved.</p>
-    <p>Empowering Progress | Engineering Tomorrow</p>
+    <p>Developed by <a href="https://mmindustrys.com" target="_blank" style="color:var(--accent2);">mmindustrys</a></p>
   </div>
 </footer>
 
-<style>
-  footer {
-    background: linear-gradient(180deg, #f9fafb, #e9edf3);
-    border-top: 3px solid #004aad;
-    margin-top: 60px;
-    font-size: 13.5px;
-    color: #333;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
-    position: relative;
-  }
-
-  .footer-bar {
-    height: 3px;
-    background: linear-gradient(90deg, #ff6a00, #004aad, #ff6a00);
-    background-size: 200% 200%;
-    animation: footerflow 5s infinite linear;
-  }
-
-  @keyframes footerflow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    padding: 40px 60px;
-  }
-
-  .footer-column h4 {
-    color: #004aad;
-    margin-bottom: 10px;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .footer-column p {
-    margin: 8px 0;
-    color: #444;
-    line-height: 1.6;
-  }
-
-  .footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .footer-column ul li {
-    margin-bottom: 6px;
-  }
-
-  .footer-column ul li a {
-    text-decoration: none;
-    color: #004aad;
-    transition: color 0.3s ease;
-  }
-
-  .footer-column ul li a:hover {
-    color: #ff6a00;
-  }
-
-  .footer-column a {
-    color: #004aad;
-    text-decoration: none;
-  }
-
-  .footer-column a:hover {
-    color: #ff6a00;
-  }
-
-  .footer-bottom {
-    text-align: center;
-    border-top: 1px solid #d1d3d8;
-    padding: 15px 0;
-    background: #f1f3f6;
-    color: #555;
-  }
-
-  .footer-bottom span {
-    color: #004aad;
-    font-weight: 700;
-  }
-
-  /* 🔥 PHOTO FRAME DESIGN 🔥 */
-  .footer-photo-frame {
-    width: 90px;
-    height: 90px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid transparent;
-    background: linear-gradient(45deg, #ff6a00, #004aad, #ff6a00);
-    background-size: 300% 300%;
-    animation: frameGlow 6s infinite linear;
-    box-shadow: 0 0 15px rgba(255,106,0,0.4);
-  }
-
-  @keyframes frameGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .footer-photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-  @media (max-width: 768px) {
-    .footer-content {
-      padding: 30px 25px;
-    }
-    .footer-photo-frame {
-      margin: 0 auto 15px auto;
-    }
-  }
-</style>
-<div class="social-links">
-  <a href="https://wa.me/256743668990" target="_blank" class="whatsapp" title="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a href="mailto:mmindustry39@gmail.com" target="_blank" class="email" title="Send Email">
-    <i class="fas fa-envelope"></i>
-  </a>
-  <a href="https://www.facebook.com/mmindustry" target="_blank" class="facebook" title="Facebook">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  <a href="https://www.instagram.com/mmindustry" target="_blank" class="instagram" title="Instagram">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://www.linkedin.com/company/mmindustry" target="_blank" class="linkedin" title="LinkedIn">
-    <i class="fab fa-linkedin-in"></i>
-  </a>
-</div>
-
-<!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<style>
-  .social-links {
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  .social-links a {
-    display: inline-block;
-    margin: 0 8px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #004aad;
-    color: #fff;
-    text-align: center;
-    line-height: 38px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  }
-
-  .social-links a:hover {
-    transform: translateY(-2px);
-    background: #ff6a00;
-    box-shadow: 0 0 12px rgba(255,106,0,0.5);
-  }
-
-  /* Specific Colors */
-  .whatsapp { background: #25D366; }
-  .email { background: #d93025; }
-  .facebook { background: #1877f2; }
-  .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-  .linkedin { background: #0077b5; }
-
-  .social-links i {
-    vertical-align: middle;
-  }
-</style>
-  </div>
 </body>
 </html>
