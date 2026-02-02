@@ -1,238 +1,298 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MM INDUSTRY Footer</title>
-
-  <!-- Font Awesome for social icons -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MR - MARK MELLON </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
   <style>
     :root {
-      --primary: #2c7be5;
-      --secondary: #00c6ff;
-      --accent: #004aad;
-      --accent2: #ff6a00;
-      --glass: rgba(255,255,255,0.15);
-      --muted: #f4f4f4;
+      --bg: #0a0a0a;
+      --card: #111111;
+      --accent: #ff6b35;
+      --text: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --glow: rgba(255, 107, 53, 0.25);
     }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      margin: 0;
-      font-family: "Segoe UI", "Times New Roman", serif;
-      background: url('https://ik.imagekit.io/s95tumxuk/Mm.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
+    a { color: var(--accent); text-decoration: none; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
 
-    footer {
+    /* Animatable base classes */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .animate-on-scroll.delay-1 { transition-delay: 0.2s; }
+    .animate-on-scroll.delay-2 { transition-delay: 0.4s; }
+    .animate-on-scroll.delay-3 { transition-delay: 0.6s; }
+
+    /* Hero */
+    header {
+      height: 100vh;
+      min-height: 700px;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://i.ibb.co/cKWrDbCx/1000702761.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
       position: relative;
-      padding: 50px 20px 20px 20px;
-      color: #fff;
       overflow: hidden;
     }
-
-    .footer-bar {
-      height: 4px;
-      width: 100%;
-      background: linear-gradient(90deg, var(--accent2), var(--accent), var(--accent2));
-      background-size: 200% 200%;
-      animation: flame 6s linear infinite;
-      border-radius: 4px;
-      margin-bottom: 30px;
+    .hero-content {
+      max-width: 900px;
+      padding: 40px;
     }
-
-    @keyframes flame {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .hero-content h1 {
+      font-size: clamp(3.5rem, 8vw, 9rem);
+      font-weight: 900;
+      line-height: 0.9;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.2s ease-out;
     }
+    .hero-content h1.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hero-content p {
+      font-size: 1.4rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: var(--text-muted);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1.2s ease-out 0.3s;
+    }
+    .hero-content p.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-weight: bold;
+      padding: 16px 40px;
+      border-radius: 50px;
+      transition: all 0.4s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .btn.visible { opacity: 1; transform: translateY(0); }
+    .btn:hover { transform: translateY(-6px) scale(1.05); box-shadow: 0 15px 40px var(--glow); }
 
-    .footer-content {
+    /* Stats */
+    .stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .stat-card {
+      background: var(--card);
+      padding: 30px 20px;
+      border-radius: 16px;
+      border: 1px solid #222;
+      transition: all 0.4s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-12px) scale(1.04);
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .stat-card i { font-size: 2.8rem; color: var(--accent); margin-bottom: 12px; }
+    .stat-card h3 { font-size: 2.5rem; margin: 8px 0; }
+    .stat-card p { color: var(--text-muted); font-size: 1.1rem; }
+
+    /* Projects */
+    .section-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin: 100px 0 60px;
+      background: linear-gradient(90deg, var(--accent), #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
-      align-items: start;
+      padding-bottom: 100px;
     }
-
-    .footer-column {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-
-    .footer-column:hover {
-      transform: translateY(-5px);
-    }
-
-    .footer-column h4 {
-      color: var(--accent);
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      font-size: 16px;
-    }
-
-    .footer-column p, .footer-column ul li a {
-      color: #fff;
-      line-height: 1.5;
-    }
-
-    .footer-column ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .footer-column ul li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column ul li a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-column ul li a:hover {
-      color: var(--accent2);
-    }
-
-    /* Flame-style image frame */
-    .footer-photo-frame {
-      width: 140px;
-      height: 140px;
-      margin-bottom: 15px;
-      border-radius: 15px;
+    .project-card {
+      position: relative;
       overflow: hidden;
-      border: 3px solid transparent;
-      background: linear-gradient(45deg, var(--accent2), var(--accent), var(--accent2));
-      background-size: 300% 300%;
-      animation: frameGlow 6s linear infinite;
-      box-shadow: 0 0 25px rgba(255,106,0,0.6);
+      border-radius: 20px;
+      background: var(--card);
+      aspect-ratio: 4/5;
+      cursor: pointer;
+      transition: transform 0.5s ease;
     }
-
-    @keyframes frameGlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .footer-photo-frame img {
+    .project-card:hover { transform: scale(1.03); }
+    .project-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 12px;
+      transition: transform 0.7s ease;
     }
+    .project-card:hover img { transform: scale(1.15); }
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.92), transparent 50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .project-card:hover .project-overlay { opacity: 1; }
+    .project-overlay h3 { font-size: 1.6rem; margin-bottom: 8px; }
 
-    /* Social Links */
-    .social-links {
-      margin-top: 25px;
+    /* Spotlight glow effect */
+    .spotlight::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), var(--glow) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .project-card:hover .spotlight::before { opacity: 1; }
+
+    footer {
       text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+      border-top: 1px solid #222;
     }
 
-    .social-links a {
-      display: inline-block;
-      margin: 0 8px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #004aad;
-      color: #fff;
-      text-align: center;
-      line-height: 40px;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-
-    .social-links a:hover {
-      transform: translateY(-2px);
-      background: var(--accent2);
-      box-shadow: 0 0 15px rgba(255,106,0,0.5);
-    }
-
-    /* Specific Colors */
-    .facebook { background: #1877f2; }
-    .youtube { background: #ff0000; }
-    .tiktok { background: #010101; }
-
-    /* Footer bottom */
-    .footer-bottom {
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.3);
-      padding-top: 15px;
-      margin-top: 30px;
-      font-size: 13px;
-    }
-
-    .footer-bottom span {
-      color: var(--accent2);
-      font-weight: bold;
-    }
-
-    @media(max-width:768px){
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        text-align: center;
-      }
-      .footer-photo-frame {
-        margin: 0 auto 15px auto;
-      }
+    @media (max-width: 768px) {
+      .hero-content { padding: 20px; }
+      .hero-content h1 { font-size: 4.5rem; }
     }
   </style>
 </head>
 <body>
 
-<footer>
-  <div class="footer-bar"></div>
+  <header>
+    <div class="hero-content">
+      <h1>MARKMELLON </h1><span style="color:var(--accent);">THE Great ENTERPRISE </span></h1>
+      <p>Do it for the culture. Creative direction • Branding • Digital experiences • Motion</p>
+      <a href="about2.html" class="btn">Get in Touch</a>
+    </div>
+  </header>
 
-  <div class="footer-content">
-    <!-- Company Info -->
-    <div class="footer-column">
-      <div class="footer-photo-frame">
-        <img src="https://ik.imagekit.io/s95tumxuk/Mmm.jpg" alt="MM INDUSTRY">
+  <section class="container">
+    <div class="stats">
+      <div class="stat-card animate-on-scroll delay-1">
+        <i class="fas fa-users"></i>
+        <h3>4K+</h3>
+        <p>Happy Clients</p>
       </div>
-      <h4>MM INDUSTRY</h4>
-      <p>Innovating the future of industrial technology through excellence, sustainability, and global expertise. We build smarter, cleaner, and more efficient solutions for a better world.</p>
+      <div class="stat-card animate-on-scroll delay-2">
+        <i class="fas fa-video"></i>
+        <h3>120+</h3>
+        <p>Videos & Projects</p>
+      </div>
+      <div class="stat-card animate-on-scroll delay-3">
+        <i class="fas fa-award"></i>
+        <h3>45</h3>
+        <p>Awards Won</p>
+      </div>
+      <div class="stat-card animate-on-scroll">
+        <i class="fas fa-globe"></i>
+        <h3>20+</h3>
+        <p>Countries Served</p>
+      </div>
     </div>
 
-    <!-- Quick Links + Info -->
-    <div class="footer-column">
-      <h4>About Us</h4>
-      <p>MM INDUSTRY is a global industrial enterprise committed to innovation, sustainability, and operational excellence. With years of experience, we deliver cutting-edge solutions across multiple sectors. Our mission is to create smarter, cleaner, and more efficient systems that empower businesses and communities to thrive in a sustainable future.</p>
-      <h4>Services</h4>
-      <p>Industrial Engineering, Automation & Technology, Renewable Energy Solutions, Strategic Consulting.</p>
-      <h4>Projects</h4>
-      <p>Smart Manufacturing Systems, Renewable Energy Installations, Infrastructure Modernization, Custom Technology Solutions.</p>
+    <h2 class="section-title animate-on-scroll">Featured Projects</h2>
+    <div class="projects">
+      <div class="project-card animate-on-scroll spotlight">
+        <img src="https://i.ibb.co/Zz3q8Y4s/1000768012.jpg" alt="Project 1">
+        <div class="project-overlay">
+          <h3>TradeLoop</h3>
+          <p>Branding & Motion</p>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll spotlight delay-1">
+        <img src="https://i.ibb.co/cSPJd73C/1000770620.jpg" alt="Project 2">
+        <div class="project-overlay">
+          <h3>MARKETING/PLACE</h3>
+          <p>TradeLoop</p>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll spotlight delay-2">
+        <img src="https://i.ibb.co/fVCNyphk/1000770621.jpg" alt="Project 3">
+        <div class="project-overlay">
+          <h3>Market Garden</h3>
+          <p>Buy and sell</p>
+        </div>
+      </div>
+      <!-- Add more cards here if you want -->
     </div>
+  </section>
 
-    <!-- Contact Info -->
-    <div class="footer-column">
-      <h4>Contact</h4>
-      <p>📧 <a href="mailto:mmindustry39@gmail.com">mmindustry39@gmail.com</a></p>
-      <p>☎️ +256 7436 60990</p>
-      <p>🌐 <a href="#">www.mmindustry.com</a></p>
-      <p>🕒 Office Hours: Mon - Fri | 8:00 AM - 5:00 PM</p>
-    </div>
-  </div>
+  <footer>
+    <p>© 2026 markmellon / Probnk Inspired. All rights reserved.</p>
+  </footer>
 
-  <!-- Social Links -->
-  <div class="social-links">
-    <a href="https://www.facebook.com/mmindustry" target="_blank" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.youtube.com/@mmindustry" target="_blank" class="youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.tiktok.com/@mmindustry" target="_blank" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
-  </div>
+  <script>
+    // 1. Scroll Reveal Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-  <div class="footer-bottom">
-    <p>© 2025 <span>MM INDUSTRY</span>. All Rights Reserved.</p>
-    <p>Developed by <a href="https://mmindustrys.com" target="_blank" style="color:var(--accent2);">mmindustrys</a></p>
-  </div>
-</footer>
+    document.querySelectorAll('.animate-on-scroll, .hero-content h1, .hero-content p, .hero-content .btn')
+      .forEach(el => observer.observe(el));
+
+    // 2. Mouse spotlight glow on project cards
+    document.querySelectorAll('.spotlight').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--x', '50%');
+        card.style.setProperty('--y', '50%');
+      });
+    });
+
+    // Optional: Trigger hero animation immediately on load
+    setTimeout(() => {
+      document.querySelector('.hero-content h1')?.classList.add('visible');
+      document.querySelector('.hero-content p')?.classList.add('visible');
+      document.querySelector('.hero-content .btn')?.classList.add('visible');
+    }, 300);
+  </script>
 
 </body>
 </html>
